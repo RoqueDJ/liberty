@@ -3,69 +3,83 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Channel List</title>
-  <meta name="description" content="A numbered television channel catalog with channel information, feeds, guides, and stream links.">
-  <meta name="theme-color" content="#111827">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8fafc">
+  <title>Channels</title>
   <link rel="stylesheet" href="style.css">
-
-  <script src="app.js" defer></script>
 </head>
-
 <body>
-  <header class="topbar">
-    <a class="brand" href="./" aria-label="Channel List home">
-      <span class="brand-icon">TV</span>
-      <span class="brand-name">Channel List</span>
-    </a>
-
-    <div class="topbar-actions">
-      <span id="channel-count" class="channel-count">Loading channels…</span>
-
-      <button
-        id="theme-toggle"
-        class="icon-button"
-        type="button"
-        aria-label="Switch color theme"
-        title="Switch theme"
-      >
-        ☀
-      </button>
-    </div>
-  </header>
-
-  <main class="main-content">
-    <div class="page-heading">
-      <div>
-        <h1>Channels</h1>
-        <p class="page-subtitle">
-          Browse channels, inspect feeds, and open stream links.
-        </p>
+  <main class="page-shell">
+    <header class="page-header">
+      <h1>Channels</h1>
+      <div class="header-actions">
+        <span id="channel-count" class="muted"></span>
+        <button id="theme-toggle" class="icon-button" type="button"
+          title="Toggle theme" aria-label="Toggle theme">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/>
+          </svg>
+        </button>
       </div>
-    </div>
+    </header>
 
-    <div id="status-message" class="status-message" role="status">
-      Loading channel database…
-    </div>
+    <div id="status-message" class="status-message" role="status"></div>
 
-    <section
-      id="channel-list"
-      class="channel-list"
-      aria-label="Television channels"
-    ></section>
-
-    <footer class="page-footer">
-      <span>Channel List</span>
-      <span>Channel data powered by your channels.json</span>
-    </footer>
+    <section id="channel-list" class="channel-list" aria-label="Channels">
+      <div class="loading-message">Loading channels...</div>
+    </section>
   </main>
 
-  <noscript>
-    <p class="noscript-message">
-      JavaScript must be enabled to display the channel list.
-    </p>
-  </noscript>
+  <section id="channel-details" class="details-overlay" hidden>
+    <button class="details-backdrop" id="details-backdrop"
+      aria-label="Close channel details"></button>
+
+    <div class="details-dialog" role="dialog" aria-modal="true"
+      aria-labelledby="details-title">
+      <div class="details-header">
+        <div id="details-title" class="details-title"></div>
+        <div class="details-header-actions">
+          <button id="add-logo-button" class="icon-button" type="button"
+            title="Add Logo" aria-label="Add Logo">
+            <svg viewBox="0 0 24 24"><path d="M12 7v10M7 12h10"/>
+              <circle cx="12" cy="12" r="10"/>
+            </svg>
+          </button>
+          <button id="close-details" class="icon-button" type="button"
+            title="Close" aria-label="Close">
+            <svg viewBox="0 0 20 20"><path d="M4.3 4.3 15.7 15.7M15.7 4.3 4.3 15.7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="details-content">
+        <section class="logo-information">
+          <div class="logo-preview">
+            <img id="details-logo" alt="Channel logo">
+            <button id="logo-menu-button" class="image-menu-button"
+              type="button" title="Menu" aria-label="Logo menu">⋮</button>
+          </div>
+          <div id="logo-metadata" class="metadata-section"></div>
+        </section>
+
+        <section class="feed-information">
+          <div class="section-heading">
+            <span class="section-symbol" aria-hidden="true">⑂</span>
+            <span>Feeds</span>
+            <span class="section-spacer"></span>
+            <button id="add-feed-button" class="icon-button" type="button"
+              title="Add Feed" aria-label="Add Feed">
+              <svg viewBox="0 0 24 24"><path d="M12 7v10M7 12h10"/>
+                <circle cx="12" cy="12" r="10"/>
+              </svg>
+            </button>
+          </div>
+          <div id="feed-list" class="feed-list"></div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
 </body>
 </html>
