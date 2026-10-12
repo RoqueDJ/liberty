@@ -1,0 +1,57 @@
+
+{
+  "channels": [
+    {
+      "number": "4.1",
+      "id": "WAPATV41.pr",
+      "name": "WAPA-TV",
+      "display_name": "WAPA-TV 4.1",
+      "logo": "https://i.imgur.com/kqq7tD9.png",
+      "network": "Independent",
+      "owner": "Televicentro de Puerto Rico LLC",
+      "country": "PR",
+      "broadcast_area": [
+        "c/PR"
+      ],
+      "timezones": [
+        "America/Puerto_Rico"
+      ],
+      "languages": [
+        "spa"
+      ],
+      "categories": [
+        "general"
+      ],
+      "website": "https://wapa.tv",
+      "feeds": [
+        {
+          "id": "HD",
+          "name": "HD",
+          "is_main": true,
+          "format": "1080i",
+          "streams": [
+            {
+              "title": "WAPA-TV 4.1",
+              "url": "https://wapa-updater.onrender.com/WAPA-TV-4-1.m3u8",
+              "quality": "1080i",
+              "open_in_new_tab": true
+            }
+          ],
+          "guides": [
+            {
+              "language": "es",
+              "site": "gatotv.com",
+              "site_id": "wapa_tv"
+            },
+            {
+              "language": "en",
+              "site": "tvtv.us",
+              "site_id": "44322",
+              "site_name": "WAPA America"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
