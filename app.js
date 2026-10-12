@@ -221,14 +221,26 @@ function renderChannels() {
     countButton.innerHTML = `${makeIcon("feed")}<span>${channel.feeds.length}</span><span class="feed-word">feed${channel.feeds.length === 1 ? "" : "s"}</span>`;
 
     countButton.addEventListener("click", event => {
-      event.stopPropagation();
-      openDetails(index);
+  event.stopPropagation();
+  openDetails(index);
+
+  requestAnimationFrame(() => {
+    document.querySelector(".feed-information")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
     });
+  });
+});
 
     logoButton.addEventListener("click", event => {
-      event.stopPropagation();
-      openDetails(index);
-    });
+  event.stopPropagation();
+
+  if (channel.logo && safeHttpUrl(channel.logo)) {
+    window.open(channel.logo, "_blank", "noopener,noreferrer");
+  } else {
+    openDetails(index);
+  }
+});
 
 row.addEventListener("click", event => {
   // Only open the details when the row background or text is clicked.
