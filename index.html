@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Channel List</title>
+  <meta name="description" content="A numbered television channel catalog with channel information, feeds, guides, and stream links.">
+  <meta name="theme-color" content="#111827">
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Channel List home">
+      <span class="brand-icon">TV</span>
+      <span class="brand-name">Channel List</span>
+    </a>
+
+    <div class="topbar-actions">
+      <span id="channel-count" class="channel-count">Loading channels…</span>
+
+      <button
+        id="theme-toggle"
+        class="icon-button"
+        type="button"
+        aria-label="Switch color theme"
+        title="Switch theme"
+      >
+        ☀
+      </button>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="page-heading">
+      <div>
+        <h1>Channels</h1>
+        <p class="page-subtitle">
+          Browse channels, inspect feeds, and open stream links.
+        </p>
+      </div>
+    </div>
+
+    <div id="status-message" class="status-message" role="status">
+      Loading channel database…
+    </div>
+
+    <section
+      id="channel-list"
+      class="channel-list"
+      aria-label="Television channels"
+    ></section>
+
+    <footer class="page-footer">
+      <span>Channel List</span>
+      <span>Channel data powered by your channels.json</span>
+    </footer>
+  </main>
+
+  <noscript>
+    <p class="noscript-message">
+      JavaScript must be enabled to display the channel list.
+    </p>
+  </noscript>
+</body>
+</html>
