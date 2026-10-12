@@ -6,28 +6,45 @@
       "id": "WAPATV41.pr",
       "name": "WAPA-TV",
       "display_name": "WAPA-TV 4.1",
+      "alt_names": [
+        "WAPA-TV",
+        "WAPA HD"
+      ],
       "logo": "https://i.imgur.com/kqq7tD9.png",
+      "logo_width": 508,
+      "logo_height": 139,
+      "logo_format": "PNG",
       "network": "Independent",
-      "owner": "Televicentro de Puerto Rico LLC",
-      "country": "PR",
+      "owners": "Televicentro of Puerto Rico LLC",
+      "country": "Puerto Rico",
       "broadcast_area": [
-        "c/PR"
+        "Puerto Rico"
       ],
       "timezones": [
         "America/Puerto_Rico"
       ],
       "languages": [
-        "spa"
+        "Spanish"
       ],
       "categories": [
-        "general"
+        "General"
       ],
+      "is_nsfw": false,
       "website": "https://wapa.tv",
       "feeds": [
         {
           "id": "HD",
           "name": "HD",
           "is_main": true,
+          "broadcast_area": [
+            "Puerto Rico"
+          ],
+          "timezones": [
+            "America/Puerto_Rico"
+          ],
+          "languages": [
+            "Spanish"
+          ],
           "format": "1080i",
           "streams": [
             {
