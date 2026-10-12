@@ -230,14 +230,21 @@ function renderChannels() {
       openDetails(index);
     });
 
-    row.addEventListener("click", () => openDetails(index));
-    row.addEventListener("keydown", event => {
-      if (event.target !== row) return;
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        openDetails(index);
-      }
-    });
+row.addEventListener("click", event => {
+  // Only open the details when the row background or text is clicked.
+  // Buttons and other interactive elements handle their own clicks.
+  if (event.target.closest("button, a, input, select, textarea")) return;
+  openDetails(index);
+});
+
+row.addEventListener("keydown", event => {
+  if (event.target !== row) return;
+
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    openDetails(index);
+  }
+});
 
     row.append(logoColumn, nameColumn, idColumn, countButton);
     elements.list.appendChild(row);
@@ -397,6 +404,7 @@ function renderFeeds(channel) {
       note.textContent = "No streams listed for this feed.";
       streams.appendChild(note);
     }
+    
 
     body.appendChild(streams);
 
@@ -481,6 +489,10 @@ function renderStream(stream, index, channel, feed) {
   link.href = safeHttpUrl(url) || "#";
   link.target = "_blank";
   link.rel = "noopener noreferrer external";
+
+link.addEventListener("click", event => {
+  event.stopPropagation();
+});
 
   if (!safeHttpUrl(url)) {
     link.addEventListener("click", event => event.preventDefault());
